@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>视频文案提取器</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <h1 class="title">视频文案提取器</h1>
+      <span class="platform-badge" id="platformBadge">检测中...</span>
+    </header>
+
+    <!-- Controls -->
+    <div class="controls">
+      <div class="control-row">
+        <select id="languageSelect" class="select" disabled>
+          <option value="">选择字幕语言</option>
+        </select>
+        <button id="extractBtn" class="btn btn-primary">提取文案</button>
+      </div>
+      <div class="control-row">
+        <input type="text" id="searchInput" class="input" placeholder="搜索关键词..." disabled>
+      </div>
+    </div>
+
+    <div class="helper-card">
+      <div class="helper-title">兜底方案（本地 yt-dlp 助手）</div>
+      <div class="control-row">
+        <input id="helperUrlInput" class="input" value="http://127.0.0.1:8765" placeholder="本地助手地址">
+      </div>
+      <div class="control-row">
+        <button id="helperExtractBtn" class="btn btn-secondary">本地助手提取字幕</button>
+        <button id="helperAudioBtn" class="btn btn-secondary">获取音频链接</button>
+      </div>
+      <div id="audioLinkRow" class="audio-link-row hidden">
+        <input id="audioLinkInput" class="input" readonly>
+        <button id="copyAudioBtn" class="btn btn-sm">复制链接</button>
+      </div>
+    </div>
+
+    <!-- Status -->
+    <div id="statusArea" class="status"></div>
+
+    <!-- Transcript Display -->
+    <div id="transcriptArea" class="transcript-area" style="display: none;">
+      <div class="transcript-header">
+        <span id="lineCount" class="line-count"></span>
+        <div class="export-buttons">
+          <button id="copyBtn" class="btn btn-sm" title="复制到剪贴板">复制</button>
+          <button id="exportTxtBtn" class="btn btn-sm" title="导出为 TXT">TXT</button>
+          <button id="exportMdBtn" class="btn btn-sm" title="导出为 Markdown">MD</button>
+        </div>
+      </div>
+      <div id="transcriptContent" class="transcript-content"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <span>本地处理 &middot; 隐私安全</span>
+    </footer>
+  </div>
+
+  <script src="../extractors/youtube.js"></script>
+  <script src="../extractors/bilibili.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
