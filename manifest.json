@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "视频文案提取器",
+  "name": "YouTube Subtitle Extractor",
   "version": "1.1.0",
-  "description": "一键提取 YouTube、Bilibili 等视频网站的口播文案与字幕",
+  "description": "One-click subtitle and transcript extractor for YouTube, Bilibili and more.",
   "permissions": [
     "activeTab",
     "scripting"
